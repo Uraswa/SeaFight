@@ -2,6 +2,230 @@
 {% block title %}
     Морской бой
 {% endblock %}
+{% block style %}
+    <style>
+        .ship__box {
+            max-width: 50px;
+            height: 50px;
+            border: 1px grey solid;
+        }
+    </style>
+{% endblock %}
 {% block content %}
+    <div class="container">
+        <div>
+            <h2>Морской бой</h2>
+            <h4>Конфигурация игры</h4>
+            <form action="" method="post" class="mt-5">
+                <div class="form-group row">
+                    <label for="widthInput" class="col-1">Ширина</label>
+                    <div class="col-2">
+                        <input id="widthInput" name="width" type="number" class="form-control" max="32" min="1">
+                    </div>
+                </div>
+                <div class="form-group row">
+                    <label for="heightInput" class="col-1">Высота</label>
+                    <div class="col-2">
+                        <input id="heightInput" name="height" type="number" class="form-control" max="32" min="1">
+                    </div>
+                </div>
+                <p>
+                    Площадь: 0
+                </p>
+                <table class="table table-bordered">
+                    <thead>
+                    <tr>
+                        <th scope="col">Фигура</th>
+                        <th scope="col">Количество</th>
+                    </tr>
+                    </thead>
+                    <tbody>
+                    <tr>
+                        <th scope="row">
+                            <div class="row">
+                                <div class="col-3 p-0 ship__box bg-danger"
+                                >
+                                </div>
+                                <div class="col-3 p-0 ship__box ">
+                                </div>
+                                <div class="col-3 p-0 ship__box ">
+                                </div>
+                                <div class="col-3 p-0 ship__box">
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-3 p-0 ship__box" style="">
+                                </div>
+                                <div class="col-3 p-0 ship__box">
+                                </div>
+                                <div class="col-3 p-0 ship__box">
+                                </div>
+                                <div class="col-3 p-0 ship__box"
+                                ></div>
+                            </div>
+                        </th>
+                        <td>
+                            <input type="number" class="form-control" id="figure1"
+                                   name="f1" min="0"></td>
+
+                    </tr>
+                    <tr>
+                        <th scope="row">
+                            <div class="row">
+                                <div class="col-3 p-0 ship__box bg-danger"
+                                >
+                                </div>
+                                <div class="col-3 p-0 ship__box bg-danger"
+                                >
+                                </div>
+                                <div class="col-3 p-0 ship__box">
+                                </div>
+                                <div class="col-3 p-0 ship__box">
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-3 p-0 ship__box">
+                                </div>
+                                <div class="col-3 p-0 ship__box">
+                                </div>
+                                <div class="col-3 p-0 ship__box">
+                                </div>
+                                <div class="col-3 p-0 ship__box"
+                                ></div>
+                            </div>
+                        </th>
+                        <td><input type="number" class="form-control" id="figure2"
+                                   name="f2" min="0"></td>
+
+                    </tr>
+                    <tr>
+                        <th scope="row">
+                            <div class="row">
+                                <div class="col-3 p-0 ship__box bg-danger"
+                                >
+                                </div>
+                                <div class="col-3 p-0 ship__box bg-danger"
+                                >
+                                </div>
+                                <div class="col-3 p-0 ship__box bg-danger"
+                                >
+                                </div>
+                                <div class="col-3 p-0 ship__box">
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-3 p-0 ship__box">
+                                </div>
+                                <div class="col-3 p-0 ship__box">
+                                </div>
+                                <div class="col-3 p-0 ship__box">
+                                </div>
+                                <div class="col-3 p-0 ship__box"
+                                ></div>
+                            </div>
+                        </th>
+                        <td><input type="number" class="form-control" id="figure3"
+                                   name="f3" min="0"></td>
+
+                    </tr>
+                    <tr>
+                        <th scope="row">
+                            <div class="row">
+                                <div class="col-3 p-0 ship__box bg-danger"
+                                >
+                                </div>
+                                <div class="col-3 p-0 ship__box bg-danger"
+                                >
+                                </div>
+                                <div class="col-3 p-0 ship__box bg-danger"
+                                >
+                                </div>
+                                <div class="col-3 p-0 ship__box bg-danger"
+                                >
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-3 p-0 ship__box">
+                                </div>
+                                <div class="col-3 p-0 ship__box">
+                                </div>
+                                <div class="col-3 p-0 ship__box">
+                                </div>
+                                <div class="col-3 p-0 ship__box"
+                                ></div>
+                            </div>
+                        </th>
+                        <td><input type="number" class="form-control" id="figure4"
+                                   name="f4" min="0"></td>
+
+                    </tr>
+                    <tr>
+                        <th scope="row">
+                            <div class="row">
+                                <div class="col-3 p-0 ship__box bg-danger"
+                                >
+                                </div>
+                                <div class="col-3 p-0 ship__box bg-danger"
+                                >
+                                </div>
+                                <div class="col-3 p-0 ship__box">
+                                </div>
+                                <div class="col-3 p-0 ship__box">
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-3 p-0 ship__box bg-danger"
+                                >
+                                </div>
+                                <div class="col-3 p-0 ship__box">
+                                </div>
+                                <div class="col-3 p-0 ship__box">
+                                </div>
+                                <div class="col-3 p-0 ship__box"
+                                ></div>
+                            </div>
+                        </th>
+                        <td><input type="number" class="form-control" id="figure5"
+                                   name="f5" min="0"></td>
+
+                    </tr>
+                    <tr>
+                        <th scope="row">
+                            <div class="row">
+                                <div class="col-3 p-0 ship__box bg-danger"
+                                >
+                                </div>
+                                <div class="col-3 p-0 ship__box bg-danger"
+                                >
+                                </div>
+                                <div class="col-3 p-0 ship__box bg-danger"
+                                >
+                                </div>
+                                <div class="col-3 p-0 ship__box">
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-3 p-0 ship__box bg-danger"
+                                >
+                                </div>
+                                <div class="col-3 p-0 ship__box">
+                                </div>
+                                <div class="col-3 p-0 ship__box">
+                                </div>
+                                <div class="col-3 p-0 ship__box"
+                                ></div>
+                            </div>
+                        </th>
+                        <td><input type="number" class="form-control" id="figure6"
+                                   name="f6" min="0"></td>
+
+                    </tr>
+                    </tbody>
+                </table>
+                {% csrf_token %}
+                <button type="submit" class="btn btn-danger btn-lg active mb-4">Начать игру</button>
+            </form>
+        </div>
+    </div>
 
 {% endblock %}
