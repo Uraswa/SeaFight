@@ -16,3 +16,12 @@ class LaunchView(View):
             form.cleaned_data.update({"host": True, "id": get_random_string(15)})
             return redirect(f'/fight?{urlencode(form.cleaned_data)}')
         return render(request, 'launcher.html')
+
+
+def game_view(request):
+    host = "false"
+    url = request.GET.urlencode()
+    if request.GET.get('host'):
+        host = "true"
+        url = ''.join(request.GET.urlencode().split('host=True'))
+    return render(request, 'game.html', {"host": host, "url": request.build_absolute_uri().split('?')[0] + '?' + url})

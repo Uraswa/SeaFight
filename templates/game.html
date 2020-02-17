@@ -1,0 +1,17 @@
+{% extends 'base.html' %}
+{% block title %}
+    Морской бой
+{% endblock %}
+{% block content %}
+    <div class="alert alert-warning alert-dismissible fade show" role="alert">
+        <strong>Скопируй ссылку и отправь другу: </strong> <a href="{{ url }}">{{ url }}</a>
+        <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+        </button>
+    </div>
+{% endblock %}
+{% block scripts %}
+    <script>
+        let isHost = {{ host }};
+    </script>
+{% endblock %}
