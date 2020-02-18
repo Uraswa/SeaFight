@@ -13,6 +13,14 @@
 {% block scripts %}
     <script>
         let isHost = {{ host }};
+        const gameId = location.search.split("id=")[1];
+        const ws = new WebSocket(`ws://${location.host}/ws/${gameId}/${isHost}/`);
+
+        //Переменные игры
+        let playersConnected = false,
+            playersReady = 0,
+            gameStarted = false;
+
         $('#copy').on('click', function (e) {
             const linkElement = $('#link');
             linkElement.focus();
@@ -20,5 +28,12 @@
             document.execCommand('copy');
             e.target.textContent = 'Скопировано';
         });
+        ws.onmessage = ({data}) => {
+            data = JSON.parse(data);
+            if (data.type === "game_connect"){
+                playersConnected = true;
+                alert('Игрок подключился. Игра начинается!')
+            }
+        }
     </script>
 {% endblock %}
