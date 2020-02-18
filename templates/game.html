@@ -2,12 +2,47 @@
 {% block title %}
     Морской бой
 {% endblock %}
+{% block style %}
+    <style>
+        .battlefield {
+            height: 900px;
+            width: 900px;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .battle-line {
+            display: flex;
+            height: 100%;
+            width: 100%;
+        }
+
+        .battle-unit {
+            height: 100%;
+            width: 100%;
+            border: 1px grey solid;
+        }
+    </style>
+{% endblock %}
 {% block content %}
     <div class="alert alert-warning alert-dismissible fade show" role="alert">
-        <strong>Скопируй ссылку и отправь другу: </strong> <input readonly="readonly" value="{{ url }}" id="link"/> <button class="btn" id="copy">Копировать</button>
+        <strong>Скопируй ссылку и отправь другу: </strong> <input readonly="readonly" value="{{ url }}" id="link"/>
+        <button class="btn" id="copy">Копировать</button>
         <button type="button" class="close" data-dismiss="alert" aria-label="Close">
             <span aria-hidden="true">&times;</span>
         </button>
+    </div>
+    <div class="d-flex">
+        <div>
+            <div class="battlefield" id="player">
+
+            </div>
+        </div>
+        <div>
+            <div class="battlefield" id="enemy">
+
+            </div>
+        </div>
     </div>
 {% endblock %}
 {% block scripts %}
@@ -21,6 +56,8 @@
             playersReady = 0,
             gameStarted = false;
 
+        const [, side] = /height=(\d+)/gm.exec(location.search);
+
         $('#copy').on('click', function (e) {
             const linkElement = $('#link');
             linkElement.focus();
@@ -30,10 +67,29 @@
         });
         ws.onmessage = ({data}) => {
             data = JSON.parse(data);
-            if (data.type === "game_connect"){
+            if (data.type === "game_connect") {
                 playersConnected = true;
                 alert('Игрок подключился. Игра начинается!')
             }
+        };
+        function createBattlefield(id){
+            for (let i = 0; i < side; i++){
+                $(id).append(`
+                    <div class="battle-line">
+                        ${(() => {
+                            let res = [];
+                            for (let j = 0; j < side; j++){
+                                res.push(`
+                                    <div class="battle-unit"></div>
+                                `)
+                            }
+                            return res.join('')
+                        })()}
+                    </div>
+                `)
+            }
         }
+        createBattlefield('#player');
+        createBattlefield('#enemy');
     </script>
 {% endblock %}
