@@ -4,7 +4,7 @@
 {% endblock %}
 {% block content %}
     <div class="alert alert-warning alert-dismissible fade show" role="alert">
-        <strong>Скопируй ссылку и отправь другу: </strong> <a href="{{ url }}">{{ url }}</a>
+        <strong>Скопируй ссылку и отправь другу: </strong> <input readonly="readonly" value="{{ url }}" id="link"/> <button class="btn" id="copy">Копировать</button>
         <button type="button" class="close" data-dismiss="alert" aria-label="Close">
             <span aria-hidden="true">&times;</span>
         </button>
@@ -13,5 +13,12 @@
 {% block scripts %}
     <script>
         let isHost = {{ host }};
+        $('#copy').on('click', function (e) {
+            const linkElement = $('#link');
+            linkElement.focus();
+            linkElement.select();
+            document.execCommand('copy');
+            e.target.textContent = 'Скопировано';
+        });
     </script>
 {% endblock %}
